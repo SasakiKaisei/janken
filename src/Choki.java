@@ -1,4 +1,5 @@
-public class Choki implements Hand {
+public class tyoki implements Hand {
+
     private String HAND_NAME = "チョキ";
     /**
      手の強弱を比較する。
@@ -7,8 +8,13 @@ public class Choki implements Hand {
      　　　　1 : 自身が引数で指定した手より強い
      */
     public int compare(Hand hand) {
-        //TODO:例外の処理
-        return 0; //TODO 仮の返り値
+        if(hand instanceof Gu) {    //チョキ　vs グー（自分）
+            return 1;
+        } else if(hand instanceof Pa) {    //チョキ　vs　パー（自分）
+            return -1;
+        } else {
+            return 0;    //チョキ　vs チョキ（自分）
+        }
     }
     public String getHandName() {
         return this.HAND_NAME;
